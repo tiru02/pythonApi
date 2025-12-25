@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import subprocess
 import tempfile
 import uuid
@@ -6,6 +7,7 @@ import os
 import sys
 
 app = Flask(__name__)
+CORS(app)
 
 PYTHON_BIN = sys.executable  # uses Vercel's Python
 
