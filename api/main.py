@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 from flask_cors import CORS
 import subprocess
 import tempfile
@@ -11,6 +11,9 @@ CORS(app)
 
 PYTHON_BIN = sys.executable  # uses Vercel's Python
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route("/run/python", methods=["POST"])
 def run_python():
